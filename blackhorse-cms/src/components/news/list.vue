@@ -1,5 +1,8 @@
 <template>
-  <div>新闻列表页</div>
+
+  <div class="page">新闻列表</div>
+
+     
 </template>
 <script>
 export default {
