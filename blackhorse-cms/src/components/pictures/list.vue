@@ -1,16 +1,13 @@
 <template>
-  <div id="app">
-    
-    <router-view/>
-  </div>
+  <div>图片列表页</div>
 </template>
-
 <script>
 export default {
-  name: 'App'
+  
 }
 </script>
-
 <style>
 
 </style>
+
+
