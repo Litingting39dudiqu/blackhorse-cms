@@ -52,7 +52,7 @@ export default new Router({
     },
      //新闻
      {
-      path:'/news/detail',
+      path:'/news/detail/:id',
       component:NewsDetail
     },
     {
