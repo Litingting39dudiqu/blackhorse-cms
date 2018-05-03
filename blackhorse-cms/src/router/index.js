@@ -23,6 +23,10 @@ export default new Router({
   routes: [
     {
       path:'/',
+      redirect:'/home'
+    },
+    {
+      path:'/home',
       component:Home
     },
     {
@@ -52,7 +56,7 @@ export default new Router({
       component:NewsDetail
     },
     {
-      path:'/goods/list',
+      path:'/news/list',
       component:NewsList
     },
        //图片
@@ -64,5 +68,6 @@ export default new Router({
         path:'/pic/list',
         component:PicList
       },
-  ]
+  ],
+  linkActiveClass: "mui-active"
 })
