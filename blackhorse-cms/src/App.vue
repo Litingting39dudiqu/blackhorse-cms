@@ -2,7 +2,7 @@
   <div id="app">
     <mt-header fixed title="首页">
         <router-link to="/" slot="left">
-          <mt-button icon="back" slot="left" v-if="$route.path != '/home'" @click="$router.go(-1)">返回</mt-button>
+          <mt-button icon="back" slot="left" v-if="$route.path != '/home'" @click='$router.go(-1)'>返回</mt-button>
         </router-link>
     </mt-header>
     <router-view/>
@@ -76,5 +76,8 @@ export default {
       }
       .mui-badge{
         z-index: 888
+      }
+      body{
+        background-color: #fff
       }
 </style>
