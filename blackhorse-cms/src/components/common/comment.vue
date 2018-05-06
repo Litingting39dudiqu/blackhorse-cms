@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="com">
         <h4>发表评论</h4>
         <hr>
         <textarea name="" id="" cols="30" rows="3" v-model="content"></textarea>
@@ -87,8 +87,14 @@ export default {
 }
 </script>
 <style>
+/* .com{
+    padding-top:40px;
+} */
 .mint-button--large{
     margin-bottom: 10px
+}
+ul li{
+    background-color: #fff;
 }
 </style>
 

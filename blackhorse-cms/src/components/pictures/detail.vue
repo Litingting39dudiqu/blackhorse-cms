@@ -1,11 +1,79 @@
 <template>
-  <div>图片详情页</div>
+  <div class="page pic-detail">
+     <!-- 引入评论组件 -->
+    <detail :article="picDetail">
+      <div slot="pics">
+           <vue-preview :slides="thumbs"></vue-preview>
+         </div>
+    </detail>
+         
+        <!-- 引入评论组件 -->
+      <comment :id="$route.params.id"></comment>
+  </div>
 </template>
 <script>
+
+import detail from  "../common/detail.vue"
+import comment from "../common/comment.vue"
+import axios from "axios"
 export default {
-  
+  data(){
+    return{
+      picDetail:{}, 
+      thumbs:[]    
+    }
+  },
+  created(){
+ 
+    axios({
+    url: "http://www.escook.cn:3000/api/getimageInfo/" + this.$route.params.id
+    }).then(res => {
+      if (res.data.status == 0) {
+       
+        this.picDetail = res.data.message[0];
+      }
+    });
+
+    axios({
+    url: "http://www.escook.cn:3000/api/getthumimages/" + this.$route.params.id
+    }).then(res=>{
+      if(res.data.status==0){
+        console.log(res.data.message)
+        res.data.message.forEach(function(v,i){
+          console.log(v)
+          v.msrc=v.src;
+          v.alt = "pic";
+          v.title="图片";
+          v.w=600;
+          v.h=400;
+
+        })
+        this.thumbs = res.data.message
+      }
+    })
+  },
+  components:{
+    detail,
+    comment
+  }
 }
 </script>
 <style>
+.pic-detail{
+    padding-left: 5px;
+    padding-right: 5px;
+}
 
+.my-gallery img{
+  /* width: 20%; */
+  width: 100%;
+  margin: 1%;
+  box-shadow: 0 0 3px 0px;
+}
+
+figure{
+    display: inline-block;
+    margin: 5px;
+    width: 20%;
+}
 </style>

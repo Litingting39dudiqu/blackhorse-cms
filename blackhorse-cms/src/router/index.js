@@ -3,6 +3,8 @@ import Router from 'vue-router'
 
 import GoodsDetail from "../components/goods/detail.vue";
 import GoodsList from "../components/goods/list.vue";
+import GoodsDesc from "../components/goods/desc.vue";
+import GoodsComment from "../components/goods/comment.vue"
 
 import NewsDetail from "../components/news/detail.vue";
 import NewsList from "../components/news/list.vue";
@@ -43,12 +45,20 @@ export default new Router({
     },
     //商品
     {
-      path:'/goods/detail',
+      path:'/goods/detail/:id',
       component:GoodsDetail
     },
     {
       path:'/goods/list',
       component:GoodsList
+    },
+    {
+      path:'/goods/desc/:id',
+      component:GoodsDesc
+    },
+    {
+      path:'/goods/comment/:id',
+      component:GoodsComment
     },
      //新闻
      {
@@ -61,11 +71,11 @@ export default new Router({
     },
        //图片
        {
-        path:'/pic/detail',
+        path:'/pic/detail/:id',
         component:PicDetail
       },
       {
-        path:'/pic/list',
+        path:'/pic/list/:id',
         component:PicList
       },
   ],

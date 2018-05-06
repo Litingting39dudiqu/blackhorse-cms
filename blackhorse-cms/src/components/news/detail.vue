@@ -1,29 +1,19 @@
 <template>
   <div class="page news">
-    <div class="news-detail">
-      <div class="news-title">
-        <h4 v-text="newsDetail.title"></h4>
-        <p>
-          <span class="pull-left">发表时间:{{newsDetail.add_time | dateformat('YYYY年MM月DD HH:mm:ss')}}</span>
-          <span class="mui-pull-right">点击:{{newsDetail.click}}次</span>
-        </p>
-      </div>
-      <hr>
-      <div class="news-content">
-        <p v-html="newsDetail.content"></p> 
-      </div>
-    </div>
-    <div class="news-comment">
-
+    <!-- 引入评论组件 -->
+    <detail :article="newsDetail"></detail>
+      <div class="news-comment">
+        <!-- 引入评论组件 -->
       <comment :id="$route.params.id"></comment>
-    </div>
-    
+    </div>   
   </div>
 </template>
 <script>
 import axios from "axios";
-import dateformat from "@/filter/dateformte";
+
 import comment from '../common/comment.vue'
+
+import detail from  '../common/detail.vue'
 export default {
   data(){
     return{
@@ -40,18 +30,20 @@ export default {
           //  console.log(res.data.message[0])
         }
       })
-    },
-    filters:{
-      dateformat
-    },
+    }, 
     components:{
-      comment
-    }
+      comment,
+      detail
+    },
+    
 }
 </script>
 <style >
 
   .news{
     margin: 0 5px;
+  }
+  p img{
+    width:100%
   }
 </style>

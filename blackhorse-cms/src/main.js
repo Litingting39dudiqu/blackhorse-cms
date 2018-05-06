@@ -10,7 +10,12 @@ Vue.use(MintUI)
 import './assets/mui/css/mui.css'
 import './assets/mui/css/icons-extra.css'
 
+//引入store里面的vuex文件
+import store from "./store"
 
+import VuePreview from "vue-preview";
+
+Vue.use(VuePreview)
 
 Vue.config.productionTip = false
 
@@ -18,5 +23,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  render: h => h(App)
+  render: h => h(App),
+  store
 })
